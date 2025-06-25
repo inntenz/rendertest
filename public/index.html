@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show Your IP</title>
+  <title>Show Your IP and Location</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,15 +22,23 @@
   </style>
 </head>
 <body>
-  <h1>Show Your IP</h1>
-  <button id="getIpBtn">Show Your IP</button>
+  <h1>Show Your IP and Location</h1>
+  <button id="getIpBtn">Show Your IP and Location</button>
   <p id="ipDisplay"></p>
+  <p id="locationDisplay"></p>
 
   <script>
     document.getElementById("getIpBtn").addEventListener("click", async () => {
-      const response = await fetch("/api/ip");
-      const data = await response.json();
-      document.getElementById("ipDisplay").textContent = `Your IP: ${data.ip}`;
+      try {
+        const response = await fetch("/api/ip");
+        const data = await response.json();
+        document.getElementById("ipDisplay").textContent = `Your IP: ${data.ip}`;
+        document.getElementById("locationDisplay").textContent = 
+          `Location: ${data.location.city}, ${data.location.region}, ${data.location.country} (ISP: ${data.location.isp})`;
+      } catch (error) {
+        document.getElementById("ipDisplay").textContent = "Error fetching data.";
+        console.error(error);
+      }
     });
   </script>
 </body>

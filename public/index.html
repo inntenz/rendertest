@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Your IP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Show Your IP</h1>
+  <button id="getIpBtn">Show Your IP</button>
+  <p id="ipDisplay"></p>
+
+  <script>
+    document.getElementById("getIpBtn").addEventListener("click", async () => {
+      const response = await fetch("/api/ip");
+      const data = await response.json();
+      document.getElementById("ipDisplay").textContent = `Your IP: ${data.ip}`;
+    });
+  </script>
+</body>
+</html>

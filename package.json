@@ -1,12 +1,15 @@
 {
-  "name": "render-ip-checker",
+  "name": "ip-location-checker",
   "version": "1.0.0",
-  "description": "A simple website to show the user's IP",
+  "description": "A simple app to show user's IP and location",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
-  }
+    "express": "^4.18.2",
+    "axios": "^1.6.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }

@@ -1,6 +1,6 @@
 const https = require("https");
 
-const url = "https://rendertest-oqbw.onrender.com";
+const url = "https://rendertest2-mcak.onrender.com";
 
 setInterval(() => {
     https.get(url, (res) => {
